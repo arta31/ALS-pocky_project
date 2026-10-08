@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/notif_tandai_dibaca"
+        android:title="Tandai semua dibaca" />
+
+    <item
+        android:id="@+id/notif_lihat_semua"
+        android:title="Lihat semua notifikasi" />
+</menu>

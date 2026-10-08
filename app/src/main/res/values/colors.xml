@@ -3,4 +3,26 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="pocky_red">#E50020</color>
+
+    <!--    ============== SEMAWIT ===================-->
+    <!-- Primary: Navy -->
+    <color name="primary_100">#DBEAFE</color>
+    <color name="primary_300">#93C5FD</color>
+    <color name="primary_500">#1E3A8A</color>
+    <color name="primary_600">#1E40AF</color>
+    <color name="primary_800">#172554</color>
+
+    <!-- Accent: Kuning emas -->
+    <color name="accent_gold">#FBBF24</color>
+    <color name="accent_gold_light">#FEF3C7</color>
+    <color name="accent_gold_dark">#B45309</color>
+
+    <!-- Neutral -->
+    <color name="neutral_0">#FFFFFF</color>
+    <color name="neutral_50">#FFFBF0</color>
+    <color name="neutral_100">#F4F4F5</color>
+    <color name="neutral_300">#D4D4D8</color>
+    <color name="neutral_500">#71717A</color>
+    <color name="neutral_700">#3F3F46</color>
+    <color name="neutral_900">#18181B</color>
 </resources>

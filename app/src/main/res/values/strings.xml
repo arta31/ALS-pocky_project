@@ -1,8 +1,24 @@
 <resources>
-    <string name="app_name">ALS-pocky</string>
+        <!--    <string name="app_name">ALS-pocky</string>-->
 
-    <string name="btn_my_project">My Project</string>
-    <string name="title_pocky">Pocky Matcha</string>
-    <string name="desc_pocky">Biskuit stik renyah \n berbalut krim mathca yang tebal\ndan lezat dari Glico.</string>
-    <string name="gizi_pocky">Komposisi Gizi (per kemasan):\n- Kalori: 230 kkal\n- Lemak Total: 10g\n- Protein: 4g\n- Karbohidrat Total: 31g\n- Natrium: 100mg</string>
+        <string name="btn_my_project">My Project</string>
+        <string name="title_pocky">Pocky Matcha</string>
+        <string name="desc_pocky">Biskuit stik renyah \n berbalut krim mathca yang tebal\ndan lezat dari Glico.</string>
+        <string name="gizi_pocky">Komposisi Gizi (per kemasan):\n- Kalori: 230 kkal\n- Lemak Total: 10g\n- Protein: 4g\n- Karbohidrat Total: 31g\n- Natrium: 100mg</string>
+
+        <!--================= SEMAWIT ===============-->
+
+        <!-- Nama Aplikasi -->
+        <string name="app_name">SEMAWIT</string>
+
+        <!-- Judul Toolbar Halaman -->
+        <string name="title_portal_sawit">Beranda Sawit</string>
+        <string name="title_detail_petani">Detail Petani</string>
+
+        <!-- Teks Tombol -->
+        <string name="btn_buka_portal">Buka Beranda </string>
+
+        <!-- Deskripsi Aksesibilitas-->
+        <string name="cd_logo">Logo SEMAWIT</string>
+
 </resources>
