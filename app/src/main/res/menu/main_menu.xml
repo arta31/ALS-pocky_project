@@ -2,11 +2,11 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
+    <!-- Ubah judul menjadi Profil Developer sesuai tugas -->
     <item
-        android:id="@+id/action_profil"
-        android:title="Profil Petani"
+        android:id="@+id/action_developer"
+        android:title="Profil Developer"
         app:showAsAction="never" />
-
     <item
         android:id="@+id/action_settings"
         android:title="Pengaturan"
@@ -16,4 +16,11 @@
         android:id="@+id/action_tentang"
         android:title="Tentang SEMAWIT"
         app:showAsAction="never" />
+
+    <!-- Tambahkan item Logout di sini -->
+    <item
+        android:id="@+id/action_logout"
+        android:title="Logout"
+        app:showAsAction="never" />
+
 </menu>

@@ -32,7 +32,6 @@
                 <ImageView
                     android:layout_width="99dp"
                     android:layout_height="100dp"
-
                     android:contentDescription="Logo SEMAWIT"
                     android:src="@drawable/ic_logo_semawit" />
 
@@ -124,7 +123,8 @@
                         android:src="@android:drawable/ic_popup_reminder"
                         android:clickable="true"
                         android:focusable="true"
-                        app:tint="@color/neutral_0"/>                </LinearLayout>
+                        app:tint="@color/neutral_0"/>
+                </LinearLayout>
 
                 <!-- 2. Card Saldo Utama -->
                 <com.google.android.material.card.MaterialCardView

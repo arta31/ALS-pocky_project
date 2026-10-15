@@ -2,17 +2,23 @@ package com.example.als_pocky.beranda1
 
 import android.content.Intent
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
-import com.example.als_pocky.databinding.ActivityBerandaBinding
+import android.view.Menu
+import android.view.MenuItem
 import android.widget.PopupMenu
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.app.AppCompatActivity
 import com.example.als_pocky.R
+import com.example.als_pocky.auth2.AuthActivity
+import com.example.als_pocky.databinding.ActivityBerandaBinding
+import com.example.als_pocky.profile2.ProfileActivity
+import com.example.als_pocky.transaksi1.InputTransaksiActivity
+import com.example.als_pocky.web1.HargaSawitWebActivity
 
 class BerandaActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityBerandaBinding
 
-    // Variabel biasa untuk menyimpan teks gabungan
     companion object {
         var teksRiwayat = ""
     }
@@ -46,17 +52,16 @@ class BerandaActivity : AppCompatActivity() {
         }
 
         binding.btnInputTransaksi.setOnClickListener {
-            val intent = Intent(this, com.example.als_pocky.transaksi1.InputTransaksiActivity::class.java)
+            val intent = Intent(this, InputTransaksiActivity::class.java)
             startActivity(intent)
         }
 
         binding.btnInfoHarga.setOnClickListener {
-            val intent = Intent(this, com.example.als_pocky.web1.HargaSawitWebActivity::class.java)
+            val intent = Intent(this, HargaSawitWebActivity::class.java)
             startActivity(intent)
         }
     }
 
-    // Dipanggil setiap kali halaman beranda muncul di layar
     override fun onResume() {
         super.onResume()
         if (teksRiwayat.isNotEmpty()) {
@@ -64,15 +69,17 @@ class BerandaActivity : AppCompatActivity() {
             binding.tvIsiRiwayat.text = teksRiwayat
         }
     }
-    override fun onCreateOptionsMenu(menu: android.view.Menu): Boolean {
+
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.main_menu, menu)
         return true
     }
 
-    override fun onOptionsItemSelected(item: android.view.MenuItem): Boolean {
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
-            R.id.action_profil -> {
-                Toast.makeText(this, "Profil Petani", Toast.LENGTH_SHORT).show()
+            // Pastikan ID ini sama dengan yang ada di res/menu/main_menu.xml
+            R.id.action_developer -> {
+                startActivity(Intent(this, ProfileActivity::class.java))
                 true
             }
             R.id.action_settings -> {
@@ -81,6 +88,28 @@ class BerandaActivity : AppCompatActivity() {
             }
             R.id.action_tentang -> {
                 Toast.makeText(this, "SEMAWIT v1.0", Toast.LENGTH_SHORT).show()
+                true
+            }
+            R.id.action_logout -> {
+                AlertDialog.Builder(this)
+                    .setTitle("Konfirmasi Logout")
+                    .setMessage("Apakah Anda yakin ingin keluar?")
+                    .setPositiveButton("Ya") { dialog, _ ->
+                        val sharedPref = getSharedPreferences("user_pref", MODE_PRIVATE)
+                        val editor = sharedPref.edit()
+                        editor.clear()
+                        editor.apply()
+
+                        dialog.dismiss()
+
+                        val intent = Intent(this, AuthActivity::class.java)
+                        startActivity(intent)
+                        finish()
+                    }
+                    .setNegativeButton("Tidak") { dialog, _ ->
+                        dialog.dismiss()
+                    }
+                    .show()
                 true
             }
             else -> super.onOptionsItemSelected(item)
