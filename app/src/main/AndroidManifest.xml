@@ -27,11 +27,9 @@
         <activity
             android:name=".auth2.AuthActivity"
             android:exported="false" />
+        <!-- Activity utama setelah login: wadah fragment + bottom navigation -->
         <activity
-            android:name=".beranda1.BerandaActivity"
-            android:exported="false" />
-        <activity
-            android:name=".transaksi1.InputTransaksiActivity"
+            android:name=".base3.BaseActivity"
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
         <activity

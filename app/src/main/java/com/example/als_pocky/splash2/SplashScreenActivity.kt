@@ -6,7 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import com.example.als_pocky.R
 import com.example.als_pocky.auth2.AuthActivity
-import com.example.als_pocky.beranda1.BerandaActivity
+import com.example.als_pocky.base3.BaseActivity
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
@@ -25,12 +25,14 @@ class SplashScreenActivity : AppCompatActivity() {
             // Cek status login
             val isLogin = sharedPref.getBoolean("isLogin", false)
             if (isLogin) {
-                // isLogin true: ke BerandaActivity
-                var intent = Intent(this@SplashScreenActivity, BerandaActivity::class.java)
+                // isLogin true: ke BaseActivity
+                var intent = Intent(this@SplashScreenActivity,
+                    BaseActivity::class.java)
                 startActivity(intent)
             } else {
                 // isLogin false: ke AuthActivity
-                var intent = Intent(this@SplashScreenActivity, AuthActivity::class.java)
+                var intent = Intent(this@SplashScreenActivity,
+                    AuthActivity::class.java)
                 startActivity(intent)
             }
             finish()

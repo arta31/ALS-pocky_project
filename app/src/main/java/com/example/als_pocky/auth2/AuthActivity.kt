@@ -4,7 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
-import com.example.als_pocky.beranda1.BerandaActivity
+import com.example.als_pocky.base3.BaseActivity
 import com.example.als_pocky.databinding.ActivityAuthBinding
 
 class AuthActivity : AppCompatActivity() {
@@ -17,7 +17,8 @@ class AuthActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         // Akses penyimpanan "user_pref"
-        val sharedPref = getSharedPreferences("user_pref", MODE_PRIVATE)
+        val sharedPref = getSharedPreferences(
+            "user_pref", MODE_PRIVATE)
 
         binding.btnLogin.setOnClickListener {
             val username = binding.etUsername.text.toString()
@@ -31,7 +32,7 @@ class AuthActivity : AppCompatActivity() {
                 editor.putString("username", username)
                 editor.apply()
 
-                startActivity(Intent(this, BerandaActivity::class.java))
+                startActivity(Intent(this, BaseActivity::class.java))
                 finish()
             } else {
                 // Login gagal: tampilkan AlertDialog
