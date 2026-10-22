@@ -6,4 +6,8 @@
     </style>
 
     <style name="Theme.ALSpocky" parent="Base.Theme.ALSpocky" />
+    <!-- Indikator (pill) menu bottom nav yang sedang aktif: kuning emas muda -->
+    <style name="SemawitBottomNavIndicator" parent="Widget.Material3.BottomNavigationView.ActiveIndicator">
+        <item name="android:color">@color/accent_gold_light</item>
+    </style>
 </resources>
