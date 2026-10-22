@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Kotak latar icon (tint merah muda, untuk Keluar) -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <solid android:color="@color/danger_50" />
+    <corners android:radius="12dp" />
+</shape>

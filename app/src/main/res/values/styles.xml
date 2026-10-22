@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Design system SEMAWIT: style yang dipakai ulang di semua layout -->
+<resources>
+
+    <!-- ===== Teks ===== -->
+    <style name="TextAppearance.Semawit.ToolbarTitle" parent="TextAppearance.Material3.TitleLarge">
+        <item name="fontFamily">@font/montserrat_bold</item>
+        <item name="android:fontFamily">@font/montserrat_bold</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">@color/neutral_900</item>
+    </style>
+
+    <style name="Semawit.Text.Heading" parent="">
+        <item name="android:fontFamily">@font/montserrat_bold</item>
+        <item name="android:textSize">24sp</item>
+        <item name="android:textColor">@color/neutral_900</item>
+    </style>
+
+    <style name="Semawit.Text.Title" parent="">
+        <item name="android:textSize">15sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/neutral_900</item>
+    </style>
+
+    <style name="Semawit.Text.Body" parent="">
+        <item name="android:textSize">13sp</item>
+        <item name="android:textColor">@color/neutral_500</item>
+        <item name="android:lineSpacingExtra">2dp</item>
+    </style>
+
+    <!-- Label kecil kapital, contoh: "TOTAL DANA TERSEDIA" -->
+    <style name="Semawit.Text.Label" parent="">
+        <item name="android:textSize">11sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:letterSpacing">0.08</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:textColor">@color/neutral_500</item>
+    </style>
+
+    <!-- Badge/pill status, contoh: "Terbaru", "Segera hadir" -->
+    <style name="Semawit.Badge" parent="">
+        <item name="android:background">@drawable/bg_pill_gold</item>
+        <item name="android:paddingStart">10dp</item>
+        <item name="android:paddingEnd">10dp</item>
+        <item name="android:paddingTop">4dp</item>
+        <item name="android:paddingBottom">4dp</item>
+        <item name="android:textSize">11sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/accent_gold_dark</item>
+    </style>
+
+    <!-- ===== Toolbar terang (judul besar, tanpa warna latar) ===== -->
+    <style name="Semawit.Toolbar" parent="Widget.Material3.Toolbar">
+        <item name="android:background">@color/bg_page</item>
+        <item name="titleTextAppearance">@style/TextAppearance.Semawit.ToolbarTitle</item>
+        <item name="titleTextColor">@color/neutral_900</item>
+        <item name="contentInsetStartWithNavigation">4dp</item>
+    </style>
+
+    <!-- ===== Kartu putih bersudut 16dp dengan garis tipis ===== -->
+    <style name="Semawit.Card" parent="Widget.Material3.CardView.Elevated">
+        <item name="cardBackgroundColor">@color/neutral_0</item>
+        <item name="cardCornerRadius">16dp</item>
+        <item name="cardElevation">0dp</item>
+        <item name="strokeColor">@color/neutral_200</item>
+        <item name="strokeWidth">1dp</item>
+    </style>
+
+    <!-- ===== Tombol ===== -->
+    <style name="Semawit.Button.Primary" parent="Widget.Material3.Button">
+        <item name="backgroundTint">@color/primary_500</item>
+        <item name="android:textColor">@color/neutral_0</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:minHeight">52dp</item>
+        <item name="cornerRadius">14dp</item>
+        <item name="iconTint">@color/neutral_0</item>
+        <item name="iconGravity">textStart</item>
+        <item name="android:elevation">4dp</item>
+    </style>
+
+    <style name="Semawit.Button.Secondary" parent="Widget.Material3.Button.OutlinedButton">
+        <item name="backgroundTint">@color/neutral_0</item>
+        <item name="android:textColor">@color/neutral_900</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:minHeight">52dp</item>
+        <item name="cornerRadius">14dp</item>
+        <item name="strokeColor">@color/neutral_200</item>
+        <item name="iconTint">@color/neutral_900</item>
+        <item name="iconGravity">textStart</item>
+    </style>
+
+    <!-- ===== Input ===== -->
+    <style name="Semawit.Input" parent="Widget.Material3.TextInputLayout.OutlinedBox">
+        <item name="boxBackgroundColor">@color/neutral_0</item>
+        <item name="boxStrokeColor">@color/primary_500</item>
+        <item name="boxCornerRadiusTopStart">12dp</item>
+        <item name="boxCornerRadiusTopEnd">12dp</item>
+        <item name="boxCornerRadiusBottomStart">12dp</item>
+        <item name="boxCornerRadiusBottomEnd">12dp</item>
+        <item name="hintTextColor">@color/primary_500</item>
+    </style>
+
+    <!-- ===== Bottom nav ===== -->
+    <style name="TextAppearance.Semawit.NavActive" parent="TextAppearance.Material3.LabelMedium">
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <!-- FAB kotak bersudut bulat (tombol + di tengah) -->
+    <style name="ShapeAppearance.Semawit.Fab" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">18dp</item>
+    </style>
+</resources>

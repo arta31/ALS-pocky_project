@@ -7,12 +7,15 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.widget.doAfterTextChanged
 import androidx.fragment.app.Fragment
 import com.example.als_pocky.R
 import com.example.als_pocky.base3.BaseActivity
 import com.example.als_pocky.databinding.FragmentPanenBinding
 import com.example.als_pocky.riwayat3.RiwayatFragment
 import java.text.NumberFormat
+import java.text.SimpleDateFormat
+import java.util.Date
 import java.util.Locale
 
 // Pindahan dari InputTransaksiActivity -> sekarang jadi menu "Panen" di bottom nav
@@ -38,6 +41,10 @@ class PanenFragment : Fragment() {
             setDisplayShowTitleEnabled(true)
         }
 
+        // Estimasi pendapatan berubah otomatis setiap kali user mengetik
+        binding.etBeratPanen.doAfterTextChanged { hitungEstimasi() }
+        binding.etHargaBuah.doAfterTextChanged { hitungEstimasi() }
+
         binding.btnHitungBagi.setOnClickListener {
             val berat = binding.etBeratPanen.text.toString().toDoubleOrNull()
             val harga = binding.etHargaBuah.text.toString().toDoubleOrNull()
@@ -50,8 +57,9 @@ class PanenFragment : Fragment() {
                 val beratTeks = formatAngka.format(berat)
                 val totalTeks = formatAngka.format(totalPendapatan.toLong())
 
-                // Simpan ke riwayat (terbaru di atas)
-                val transaksiBaru = "Panen $beratTeks Kg  •  Rp $totalTeks"
+                // Simpan ke riwayat (terbaru di atas), lengkap dengan tanggal
+                val tanggal = SimpleDateFormat("dd MMM yyyy, HH.mm", Locale("id", "ID")).format(Date())
+                val transaksiBaru = "Panen $beratTeks Kg  •  Rp $totalTeks  •  $tanggal"
                 val teksLama = RiwayatFragment.teksRiwayat
                 RiwayatFragment.teksRiwayat = if (teksLama.isEmpty()) {
                     transaksiBaru
@@ -73,6 +81,14 @@ class PanenFragment : Fragment() {
                 Toast.makeText(requireContext(), "Isi berat dan harga dengan benar!", Toast.LENGTH_SHORT).show()
             }
         }
+    }
+
+    // Menghitung berat x harga lalu menampilkannya di tvEstimasi
+    private fun hitungEstimasi() {
+        val berat = binding.etBeratPanen.text.toString().toDoubleOrNull() ?: 0.0
+        val harga = binding.etHargaBuah.text.toString().toDoubleOrNull() ?: 0.0
+        val formatAngka = NumberFormat.getInstance(Locale("id", "ID"))
+        binding.tvEstimasi.text = "Rp ${formatAngka.format((berat * harga).toLong())}"
     }
 
     override fun onDestroyView() {

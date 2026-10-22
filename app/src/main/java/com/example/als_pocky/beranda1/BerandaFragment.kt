@@ -3,7 +3,6 @@ package com.example.als_pocky.beranda1
 import android.content.Context.MODE_PRIVATE
 import android.content.Intent
 import android.os.Bundle
-import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.Menu
 import android.view.MenuInflater
@@ -12,6 +11,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.PopupMenu
 import android.widget.Toast
+import java.util.Calendar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.MenuProvider
 import androidx.fragment.app.Fragment
@@ -78,6 +78,15 @@ class BerandaFragment : Fragment() {
         binding.tvNamaUser.text = username
         binding.tvInisial.text = username.take(2).uppercase()
 
+        // Sapaan sesuai jam
+        val jam = Calendar.getInstance().get(Calendar.HOUR_OF_DAY)
+        binding.tvSapaan.text = when (jam) {
+            in 4..10 -> "Selamat pagi,"
+            in 11..14 -> "Selamat siang,"
+            in 15..17 -> "Selamat sore,"
+            else -> "Selamat malam,"
+        }
+
         // Popup notifikasi
         binding.ivNotif.setOnClickListener { v ->
             val popup = PopupMenu(requireContext(), v)
@@ -98,12 +107,12 @@ class BerandaFragment : Fragment() {
             popup.show()
         }
 
-        // "+ Input Panen" -> pindah ke menu Panen di bottom nav
+        // "Input Panen" -> pindah ke menu Panen di bottom nav
         binding.btnInputTransaksi.setOnClickListener {
             (requireActivity() as BaseActivity).bukaMenu(R.id.nav_panen)
         }
 
-        // "Web Harga" -> tetap membuka Activity WebView
+        // "Harga Sawit" -> tetap membuka Activity WebView
         binding.btnInfoHarga.setOnClickListener {
             startActivity(Intent(requireContext(), HargaSawitWebActivity::class.java))
         }
@@ -116,11 +125,20 @@ class BerandaFragment : Fragment() {
 
     override fun onResume() {
         super.onResume()
-        // Tampilkan 1 transaksi terbaru saja, sisanya ada di RiwayatFragment
         val riwayat = RiwayatFragment.teksRiwayat
         if (riwayat.isNotEmpty()) {
-            binding.tvIsiRiwayat.gravity = Gravity.START
-            binding.tvIsiRiwayat.text = riwayat.split("\n\n").first()
+            // Setiap transaksi dipisah baris kosong, terbaru di paling atas
+            val daftar = riwayat.split("\n\n")
+            binding.tvJumlahTransaksi.text = "${daftar.size} transaksi panen tercatat"
+
+            // Format 1 transaksi: "Panen 100 Kg  •  Rp 250.000  •  22 Okt 2026, 18.30"
+            val bagian = daftar.first().split("  •  ")
+            binding.tvJudulTerakhir.text = bagian[0]
+            binding.tvNominalTerakhir.text = bagian.getOrElse(1) { "" }
+            binding.tvTanggalTerakhir.text = bagian.getOrElse(2) { "Hari ini" }
+
+            binding.tvIsiRiwayat.visibility = View.GONE
+            binding.layoutTerakhir.visibility = View.VISIBLE
         }
     }
 

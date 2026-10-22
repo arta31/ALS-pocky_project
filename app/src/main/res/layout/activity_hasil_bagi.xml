@@ -1,257 +1,213 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<!-- Hasil Bagi: layar berhasil (centang) + rincian alokasi dana -->
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/neutral_0">
-
-    <com.google.android.material.appbar.AppBarLayout
-        android:id="@+id/appBar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/primary_500"
-        android:theme="@style/ThemeOverlay.MaterialComponents.Dark.ActionBar"
-        app:elevation="0dp">
-
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="@color/primary_500"
-            app:titleTextColor="@color/neutral_0" />
-    </com.google.android.material.appbar.AppBarLayout>
+    android:background="@color/bg_page"
+    android:fitsSystemWindows="true">
 
     <androidx.core.widget.NestedScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:clipToPadding="false"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        app:layout_constraintBottom_toTopOf="@id/bottomBar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-        <FrameLayout
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:padding="24dp">
 
-            <!-- Latar header melengkung -->
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="150dp"
-                android:background="@drawable/bg_header_curved" />
+            <ImageView
+                android:layout_width="96dp"
+                android:layout_height="96dp"
+                android:layout_marginTop="32dp"
+                android:background="@drawable/bg_check_circle"
+                android:padding="26dp"
+                android:src="@drawable/ic_check"
+                app:tint="@color/primary_500" />
 
-            <LinearLayout
+            <TextView
+                style="@style/Semawit.Text.Heading"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:text="Bagi hasil selesai!" />
+
+            <TextView
+                style="@style/Semawit.Text.Body"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:gravity="center"
+                android:text="Pendapatan panen sudah dibagi otomatis\nke tiga pos dana." />
+
+            <com.google.android.material.card.MaterialCardView
+                style="@style/Semawit.Card"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="16dp">
+                android:layout_marginTop="28dp">
 
-                <!-- Header: judul + total -->
-                <TextView
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:text="RINCIAN ALOKASI DANA PANEN"
-                    android:textColor="@color/primary_100"
-                    android:textSize="12sp"
-                    android:textStyle="bold"
-                    android:letterSpacing="0.08"
-                    android:layout_marginTop="8dp" />
+                    android:orientation="vertical"
+                    android:padding="18dp">
 
-                <TextView
-                    android:id="@+id/tvTotalPendapatan"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="6dp"
-                    android:layout_marginBottom="32dp"
-                    android:gravity="center"
-                    android:text="Total: Rp 0"
-                    android:textColor="@color/neutral_0"
-                    android:textSize="26sp"
-                    android:textStyle="bold" />
+                    <TextView
+                        style="@style/Semawit.Text.Label"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Total pendapatan panen" />
 
-                <!-- Card Rumah Tangga (75%) -->
-                <com.google.android.material.card.MaterialCardView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="12dp"
-                    app:cardBackgroundColor="@color/neutral_0"
-                    app:cardCornerRadius="16dp"
-                    app:cardElevation="6dp"
-                    app:strokeColor="@color/neutral_300"
-                    app:strokeWidth="1dp">
+                    <TextView
+                        android:id="@+id/tvTotalPendapatan"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:fontFamily="@font/montserrat_bold"
+                        android:text="Rp 0"
+                        android:textColor="@color/primary_500"
+                        android:textSize="26sp" />
 
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginVertical="16dp"
+                        android:background="@color/neutral_200" />
+
+                    <!-- Baris 1: Rumah Tangga 75% -->
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="center_vertical"
-                        android:orientation="horizontal"
-                        android:padding="16dp">
+                        android:orientation="horizontal">
 
-                        <com.google.android.material.card.MaterialCardView
+                        <TextView
                             android:layout_width="48dp"
-                            android:layout_height="48dp"
-                            app:cardBackgroundColor="@color/primary_500"
-                            app:cardCornerRadius="14dp"
-                            app:cardElevation="0dp">
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center"
-                                android:text="75%"
-                                android:textColor="@color/neutral_0"
-                                android:textSize="13sp"
-                                android:textStyle="bold" />
-                        </com.google.android.material.card.MaterialCardView>
+                            android:layout_height="36dp"
+                            android:background="@drawable/bg_icon_tile"
+                            android:gravity="center"
+                            android:text="75%"
+                            android:textColor="@color/primary_500"
+                            android:textSize="12sp"
+                            android:textStyle="bold" />
 
-                        <LinearLayout
+                        <TextView
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
+                            android:layout_marginStart="12dp"
                             android:layout_weight="1"
-                            android:layout_marginStart="14dp"
-                            android:orientation="vertical">
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Keperluan Rumah Tangga"
-                                android:textColor="@color/neutral_500"
-                                android:textSize="12sp" />
-                            <TextView
-                                android:id="@+id/tvRumahTangga"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Rp 0"
-                                android:textColor="@color/neutral_900"
-                                android:textSize="18sp"
-                                android:textStyle="bold" />
-                        </LinearLayout>
+                            android:text="Keperluan Rumah Tangga"
+                            android:textColor="@color/neutral_700"
+                            android:textSize="13sp" />
+
+                        <TextView
+                            android:id="@+id/tvRumahTangga"
+                            style="@style/Semawit.Text.Title"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Rp 0"
+                            android:textSize="14sp" />
                     </LinearLayout>
-                </com.google.android.material.card.MaterialCardView>
 
-                <!-- Card Pupuk (15%) -->
-                <com.google.android.material.card.MaterialCardView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="12dp"
-                    app:cardBackgroundColor="@color/neutral_0"
-                    app:cardCornerRadius="16dp"
-                    app:cardElevation="6dp"
-                    app:strokeColor="@color/neutral_300"
-                    app:strokeWidth="1dp">
-
+                    <!-- Baris 2: Pupuk 15% -->
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
                         android:gravity="center_vertical"
-                        android:orientation="horizontal"
-                        android:padding="16dp">
+                        android:orientation="horizontal">
 
-                        <com.google.android.material.card.MaterialCardView
+                        <TextView
                             android:layout_width="48dp"
-                            android:layout_height="48dp"
-                            app:cardBackgroundColor="@color/primary_500"
-                            app:cardCornerRadius="14dp"
-                            app:cardElevation="0dp">
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center"
-                                android:text="15%"
-                                android:textColor="@color/neutral_0"
-                                android:textSize="13sp"
-                                android:textStyle="bold" />
-                        </com.google.android.material.card.MaterialCardView>
+                            android:layout_height="36dp"
+                            android:background="@drawable/bg_icon_tile_gold"
+                            android:gravity="center"
+                            android:text="15%"
+                            android:textColor="@color/accent_gold_dark"
+                            android:textSize="12sp"
+                            android:textStyle="bold" />
 
-                        <LinearLayout
+                        <TextView
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
+                            android:layout_marginStart="12dp"
                             android:layout_weight="1"
-                            android:layout_marginStart="14dp"
-                            android:orientation="vertical">
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Dana Pupuk"
-                                android:textColor="@color/neutral_500"
-                                android:textSize="12sp" />
-                            <TextView
-                                android:id="@+id/tvPupuk"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Rp 0"
-                                android:textColor="@color/neutral_900"
-                                android:textSize="18sp"
-                                android:textStyle="bold" />
-                        </LinearLayout>
+                            android:text="Dana Pupuk"
+                            android:textColor="@color/neutral_700"
+                            android:textSize="13sp" />
+
+                        <TextView
+                            android:id="@+id/tvPupuk"
+                            style="@style/Semawit.Text.Title"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Rp 0"
+                            android:textSize="14sp" />
                     </LinearLayout>
-                </com.google.android.material.card.MaterialCardView>
 
-                <!-- Card Racun (10%) -->
-                <com.google.android.material.card.MaterialCardView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="28dp"
-                    app:cardBackgroundColor="@color/neutral_0"
-                    app:cardCornerRadius="16dp"
-                    app:cardElevation="6dp"
-                    app:strokeColor="@color/neutral_300"
-                    app:strokeWidth="1dp">
-
+                    <!-- Baris 3: Racun 10% -->
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
                         android:gravity="center_vertical"
-                        android:orientation="horizontal"
-                        android:padding="16dp">
+                        android:orientation="horizontal">
 
-                        <com.google.android.material.card.MaterialCardView
+                        <TextView
                             android:layout_width="48dp"
-                            android:layout_height="48dp"
-                            app:cardBackgroundColor="@color/primary_500"
-                            app:cardCornerRadius="14dp"
-                            app:cardElevation="0dp">
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center"
-                                android:text="10%"
-                                android:textColor="@color/neutral_0"
-                                android:textSize="13sp"
-                                android:textStyle="bold" />
-                        </com.google.android.material.card.MaterialCardView>
+                            android:layout_height="36dp"
+                            android:background="@drawable/bg_icon_tile_red"
+                            android:gravity="center"
+                            android:text="10%"
+                            android:textColor="@color/danger_500"
+                            android:textSize="12sp"
+                            android:textStyle="bold" />
 
-                        <LinearLayout
+                        <TextView
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
+                            android:layout_marginStart="12dp"
                             android:layout_weight="1"
-                            android:layout_marginStart="14dp"
-                            android:orientation="vertical">
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Dana Racun"
-                                android:textColor="@color/neutral_500"
-                                android:textSize="12sp" />
-                            <TextView
-                                android:id="@+id/tvRacun"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Rp 0"
-                                android:textColor="@color/neutral_900"
-                                android:textSize="18sp"
-                                android:textStyle="bold" />
-                        </LinearLayout>
-                    </LinearLayout>
-                </com.google.android.material.card.MaterialCardView>
+                            android:text="Dana Racun"
+                            android:textColor="@color/neutral_700"
+                            android:textSize="13sp" />
 
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/btnSelesai"
-                    android:layout_width="match_parent"
-                    android:layout_height="54dp"
-                    android:layout_marginBottom="16dp"
-                    android:text="Kembali ke Beranda"
-                    android:textColor="@color/neutral_0"
-                    android:textStyle="bold"
-                    app:backgroundTint="@color/primary_500"
-                    app:cornerRadius="14dp" />
-            </LinearLayout>
-        </FrameLayout>
+                        <TextView
+                            android:id="@+id/tvRacun"
+                            style="@style/Semawit.Text.Title"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Rp 0"
+                            android:textSize="14sp" />
+                    </LinearLayout>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+        </LinearLayout>
     </androidx.core.widget.NestedScrollView>
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+    <FrameLayout
+        android:id="@+id/bottomBar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_bottom_bar"
+        android:padding="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnSelesai"
+            style="@style/Semawit.Button.Primary"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Kembali ke beranda" />
+    </FrameLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

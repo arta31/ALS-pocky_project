@@ -1,17 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Riwayat: daftar transaksi panen (baris dibuat dari item_riwayat.xml) -->
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/neutral_50">
+    android:background="@color/bg_page">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
+        style="@style/Semawit.Toolbar"
         android:layout_width="0dp"
         android:layout_height="?attr/actionBarSize"
-        android:background="@color/primary_500"
-        android:theme="@style/ThemeOverlay.MaterialComponents.Dark.ActionBar"
-        app:titleTextColor="@color/neutral_0"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -28,44 +27,69 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="16dp">
+            android:paddingHorizontal="16dp"
+            android:paddingBottom="40dp">
 
             <TextView
+                style="@style/Semawit.Text.Body"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Semua transaksi panen"
-                android:textColor="@color/neutral_900"
-                android:textSize="16sp"
-                android:textStyle="bold" />
+                android:text="Semua transaksi panen, terbaru di paling atas." />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="2dp"
-                android:text="Transaksi terbaru di paling atas"
-                android:textColor="@color/neutral_500"
-                android:textSize="12sp" />
-
+            <!-- Kosong: tampil jika belum ada transaksi -->
             <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardKosong"
+                style="@style/Semawit.Card"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                app:cardBackgroundColor="@color/neutral_0"
-                app:cardCornerRadius="16dp"
-                app:cardElevation="2dp"
-                app:strokeColor="@color/neutral_300"
-                app:strokeWidth="1dp">
+                android:layout_marginTop="16dp">
 
-                <TextView
-                    android:id="@+id/tvDaftarRiwayat"
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:lineSpacingExtra="4dp"
-                    android:padding="20dp"
-                    android:text="Belum ada transaksi."
-                    android:textColor="@color/neutral_700"
-                    android:textSize="14sp" />
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical"
+                    android:padding="28dp">
+
+                    <ImageView
+                        android:layout_width="56dp"
+                        android:layout_height="56dp"
+                        android:background="@drawable/bg_icon_tile"
+                        android:padding="14dp"
+                        android:src="@drawable/ic_nav_riwayat"
+                        app:tint="@color/primary_500" />
+
+                    <TextView
+                        style="@style/Semawit.Text.Title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:text="Belum ada transaksi" />
+
+                    <TextView
+                        style="@style/Semawit.Text.Body"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:gravity="center"
+                        android:text="Tekan tombol + di bawah untuk\nmencatat panen pertama." />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Daftar: baris transaksi ditambahkan dari kode (addView) -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardDaftar"
+                style="@style/Semawit.Card"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:visibility="gone">
+
+                <LinearLayout
+                    android:id="@+id/containerRiwayat"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical" />
             </com.google.android.material.card.MaterialCardView>
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>

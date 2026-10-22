@@ -1,9 +1,7 @@
 package com.example.als_pocky.base3
 
 import android.content.Intent
-import android.graphics.Color
 import android.os.Bundle
-import androidx.activity.SystemBarStyle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
@@ -25,8 +23,7 @@ class BaseActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        // Status bar transparan dengan icon putih (karena background navy)
-        enableEdgeToEdge(statusBarStyle = SystemBarStyle.dark(Color.TRANSPARENT))
+        enableEdgeToEdge()
         binding = ActivityBaseBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
@@ -50,12 +47,12 @@ class BaseActivity : AppCompatActivity() {
                     replaceFragment(BerandaFragment())
                     true
                 }
-                R.id.nav_panen -> {
-                    replaceFragment(PanenFragment())
-                    true
-                }
                 R.id.nav_dana -> {
                     replaceFragment(DanaFragment())
+                    true
+                }
+                R.id.nav_panen -> {
+                    replaceFragment(PanenFragment())
                     true
                 }
                 R.id.nav_riwayat -> {
@@ -68,6 +65,11 @@ class BaseActivity : AppCompatActivity() {
                 }
                 else -> false // return false jika item tidak ada yang di klik
             }
+        }
+
+        // Tombol + di tengah -> pilih menu Panen (memicu listener di atas)
+        binding.fabPanen.setOnClickListener {
+            bukaMenu(R.id.nav_panen)
         }
     }
 

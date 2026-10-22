@@ -1,19 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Menu Bottom Navigation SEMAWIT.
-     id di sini dipakai di BaseActivity -> when (it.itemId) -->
+     id di sini dipakai di BaseActivity -> when (it.itemId).
+     Item tengah (nav_panen) sengaja tanpa icon & judul karena ditutupi tombol + (fabPanen). -->
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/nav_beranda"
         android:icon="@drawable/ic_nav_beranda"
         android:title="Beranda" />
     <item
-        android:id="@+id/nav_panen"
-        android:icon="@drawable/ic_nav_panen"
-        android:title="Panen" />
-    <item
         android:id="@+id/nav_dana"
         android:icon="@drawable/ic_nav_dana"
         android:title="Dana" />
+    <item
+        android:id="@+id/nav_panen"
+        android:icon="@drawable/ic_nav_kosong"
+        android:title="" />
     <item
         android:id="@+id/nav_riwayat"
         android:icon="@drawable/ic_nav_riwayat"

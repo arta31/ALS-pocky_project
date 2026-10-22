@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.MenuItem
 import android.webkit.WebViewClient
 import androidx.appcompat.app.AppCompatActivity
+import com.example.als_pocky.R
 import com.example.als_pocky.databinding.ActivityHargaSawitWebBinding
 
 class HargaSawitWebActivity : AppCompatActivity() {
@@ -21,6 +22,7 @@ class HargaSawitWebActivity : AppCompatActivity() {
             title = "Info Harga Sawit"
             setDisplayHomeAsUpEnabled(true)
             setDisplayShowHomeEnabled(true)
+            setHomeAsUpIndicator(R.drawable.ic_back_box)
         }
 
         // 2. Konfigurasi WebView[cite: 3]

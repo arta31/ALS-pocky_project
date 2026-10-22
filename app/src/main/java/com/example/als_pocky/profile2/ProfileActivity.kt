@@ -21,7 +21,7 @@ class ProfileActivity : AppCompatActivity() { // <-- Perbaikan nama class pakai 
             title = "Profil Developer"
             setDisplayHomeAsUpEnabled(true)
             setDisplayShowHomeEnabled(true)
-            setHomeAsUpIndicator(R.drawable.ic_arrow_back)
+            setHomeAsUpIndicator(R.drawable.ic_back_box)
         }
     }
 

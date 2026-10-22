@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.example.als_pocky.base3.BaseActivity
@@ -42,6 +43,14 @@ class AkunFragment : Fragment() {
 
         binding.btnProfilDeveloper.setOnClickListener {
             startActivity(Intent(requireContext(), ProfileActivity::class.java))
+        }
+
+        binding.menuPengaturan.setOnClickListener {
+            Toast.makeText(requireContext(), "Pengaturan", Toast.LENGTH_SHORT).show()
+        }
+
+        binding.menuTentang.setOnClickListener {
+            Toast.makeText(requireContext(), "SEMAWIT v1.0", Toast.LENGTH_SHORT).show()
         }
 
         // Logout: dialog + hapus sharedPref + finish() ada di BaseActivity
