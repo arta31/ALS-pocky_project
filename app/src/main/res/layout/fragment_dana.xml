@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/neutral_50">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="0dp"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/primary_500"
+        android:theme="@style/ThemeOverlay.MaterialComponents.Dark.ActionBar"
+        app:titleTextColor="@color/neutral_0"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbar">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                app:cardBackgroundColor="@color/neutral_0"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="2dp"
+                app:strokeColor="@color/neutral_300"
+                app:strokeWidth="1dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:padding="24dp">
+
+                    <ImageView
+                        android:layout_width="56dp"
+                        android:layout_height="56dp"
+                        android:src="@drawable/ic_nav_dana"
+                        app:tint="@color/accent_gold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:fontFamily="@font/montserrat_bold"
+                        android:text="Alokasi Dana"
+                        android:textColor="@color/primary_500"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:gravity="center"
+                        android:text="Halaman ini sedang dikembangkan.\nNanti berisi pembagian dana panen:\nRumah Tangga 75% • Pupuk 15% • Racun 10%"
+                        android:textColor="@color/neutral_500"
+                        android:textSize="13sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:background="@color/accent_gold_light"
+                        android:paddingHorizontal="12dp"
+                        android:paddingVertical="4dp"
+                        android:text="Segera hadir"
+                        android:textColor="@color/accent_gold_dark"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

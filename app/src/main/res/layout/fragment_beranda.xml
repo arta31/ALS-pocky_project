@@ -8,7 +8,6 @@
     <!-- Header / Toolbar -->
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appBar"
-        android:fitsSystemWindows="true"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/primary_500"
@@ -86,6 +85,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:id="@+id/tvInisial"
                             android:text="AR"
                             android:textColor="@color/primary_500"
                             android:textStyle="bold"
@@ -109,6 +109,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/montserrat_bold"
+                            android:id="@+id/tvNamaUser"
                             android:text="Arut Wijaya"
                             android:textColor="@color/neutral_0"
                             android:textSize="16sp"
@@ -248,15 +249,33 @@
                         app:cornerRadius="14dp" />
                 </LinearLayout>
 
-                <!-- 4. Daftar Riwayat Aktivitas -->
-                <TextView
-                    android:layout_width="wrap_content"
+                <!-- 4. Riwayat terakhir (lengkapnya di menu Riwayat) -->
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Riwayat Transaksi"
-                    android:textColor="@color/neutral_900"
-                    android:textStyle="bold"
-                    android:textSize="16sp"
-                    android:layout_marginTop="28dp"/>
+                    android:layout_marginTop="28dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Transaksi Terakhir"
+                        android:textColor="@color/neutral_900"
+                        android:textStyle="bold"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/tvLihatSemua"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="4dp"
+                        android:text="Lihat semua"
+                        android:textColor="@color/primary_600"
+                        android:textStyle="bold"
+                        android:textSize="13sp" />
+                </LinearLayout>
 
                 <com.google.android.material.card.MaterialCardView
                     android:layout_width="match_parent"
