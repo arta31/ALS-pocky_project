@@ -100,6 +100,24 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="28dp"
             android:text="Masuk" />
+        <!-- Pemisah -->
+        <TextView
+            style="@style/Semawit.Text.Body"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:gravity="center"
+            android:text="atau" />
+
+        <!-- Tombol Register With Gmail -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnRegisterGmail"
+            style="@style/Semawit.Button.Secondary"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="Register With Gmail"
+            app:icon="@drawable/ic_mail" />
 
         <TextView
             style="@style/Semawit.Text.Body"
