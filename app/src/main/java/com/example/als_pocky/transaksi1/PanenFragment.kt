@@ -67,6 +67,9 @@ class PanenFragment : Fragment() {
                     transaksiBaru + "\n\n" + teksLama
                 }
 
+                // Simpan riwayat ke SharedPreferences agar tidak hilang saat aplikasi ditutup
+                RiwayatFragment.simpan(requireContext())
+
                 // Kosongkan form, lalu pindah menu ke Beranda
                 // supaya setelah "Kembali ke Beranda" user langsung lihat transaksi terakhir
                 binding.etBeratPanen.text?.clear()
@@ -76,6 +79,10 @@ class PanenFragment : Fragment() {
                 // Buka halaman Hasil Bagi (masih Activity)
                 val intent = Intent(requireContext(), HasilBagiActivity::class.java)
                 intent.putExtra("TOTAL_PENDAPATAN", totalPendapatan)
+                // Data tambahan untuk Laporan PDF
+                intent.putExtra("BERAT", berat)
+                intent.putExtra("HARGA", harga)
+                intent.putExtra("TANGGAL", tanggal)
                 startActivity(intent)
             } else {
                 Toast.makeText(requireContext(), "Isi berat dan harga dengan benar!", Toast.LENGTH_SHORT).show()

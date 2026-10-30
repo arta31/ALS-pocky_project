@@ -202,12 +202,28 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnSelesai"
-            style="@style/Semawit.Button.Primary"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Kembali ke beranda" />
+            android:orientation="vertical">
+
+            <!-- Fitur baru: Laporan PDF + Bagikan -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnBagikanPdf"
+                style="@style/Semawit.Button.Secondary"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Bagikan Laporan (PDF)"
+                app:icon="@drawable/ic_share" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnSelesai"
+                style="@style/Semawit.Button.Primary"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="Kembali ke beranda" />
+        </LinearLayout>
     </FrameLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
