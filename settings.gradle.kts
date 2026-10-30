@@ -19,6 +19,8 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
+        // Fitur baru: MPAndroidChart hanya tersedia di JitPack
+        maven { url = uri("https://jitpack.io") }
     }
 }
 
