@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 💡 BARU: folder yang boleh dibagikan lewat FileProvider (cache/laporan/) -->
+<paths>
+    <cache-path
+        name="laporan"
+        path="laporan/" />
+</paths>

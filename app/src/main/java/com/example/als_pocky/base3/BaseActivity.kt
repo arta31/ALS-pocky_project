@@ -27,6 +27,9 @@ class BaseActivity : AppCompatActivity() {
         binding = ActivityBaseBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        // Muat riwayat panen yang tersimpan (SharedPreferences "riwayat_pref")
+        RiwayatFragment.muat(this)
+
         ViewCompat.setOnApplyWindowInsetsListener(binding.root) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             // bottom = 0, karena BottomNavigationView sudah mengatur jarak bawahnya sendiri

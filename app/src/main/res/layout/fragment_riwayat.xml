@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Riwayat: daftar transaksi panen (baris dibuat dari item_riwayat.xml) -->
+<!-- Riwayat: Kalender Panen (fitur baru) + daftar transaksi -->
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
@@ -34,15 +34,154 @@
                 style="@style/Semawit.Text.Body"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Semua transaksi panen, terbaru di paling atas." />
+                android:text="Ketuk tanggal untuk melihat panen di hari itu." />
 
-            <!-- Kosong: tampil jika belum ada transaksi -->
+            <!-- ========== KALENDER PANEN ========== -->
+            <com.google.android.material.card.MaterialCardView
+                style="@style/Semawit.Card"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="12dp">
+
+                    <!-- Header: ‹ Oktober 2026 › -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:id="@+id/btnBulanSebelum"
+                            android:layout_width="36dp"
+                            android:layout_height="36dp"
+                            android:background="@drawable/bg_icon_tile"
+                            android:contentDescription="Bulan sebelumnya"
+                            android:padding="8dp"
+                            android:rotation="180"
+                            android:src="@drawable/ic_chevron_right"
+                            app:tint="@color/primary_500" />
+
+                        <TextView
+                            android:id="@+id/tvBulan"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:fontFamily="@font/montserrat_bold"
+                            android:gravity="center"
+                            android:text="Oktober 2026"
+                            android:textColor="@color/neutral_900"
+                            android:textSize="16sp" />
+
+                        <ImageView
+                            android:id="@+id/btnBulanBerikut"
+                            android:layout_width="36dp"
+                            android:layout_height="36dp"
+                            android:background="@drawable/bg_icon_tile"
+                            android:contentDescription="Bulan berikutnya"
+                            android:padding="8dp"
+                            android:src="@drawable/ic_chevron_right"
+                            app:tint="@color/primary_500" />
+                    </LinearLayout>
+
+                    <!-- Nama hari (Sen, Sel, ...) diisi dari kode -->
+                    <LinearLayout
+                        android:id="@+id/layoutNamaHari"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:orientation="horizontal" />
+
+                    <!-- CalendarView dari library kizitonwose/Calendar -->
+                    <com.kizitonwose.calendar.view.CalendarView
+                        android:id="@+id/calendarView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:cv_dayViewResource="@layout/item_calendar_day"
+                        app:cv_daySize="rectangle"
+                        app:cv_orientation="horizontal"
+                        app:cv_outDateStyle="endOfGrid"
+                        app:cv_scrollPaged="true" />
+
+                    <!-- Keterangan -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:gravity="center"
+                        android:orientation="horizontal">
+
+                        <View
+                            android:layout_width="8dp"
+                            android:layout_height="8dp"
+                            android:background="@drawable/bg_dot_gold" />
+
+                        <TextView
+                            style="@style/Semawit.Text.Body"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="6dp"
+                            android:text="Hari panen"
+                            android:textSize="12sp" />
+
+                        <View
+                            android:layout_width="12dp"
+                            android:layout_height="12dp"
+                            android:layout_marginStart="20dp"
+                            android:background="@drawable/bg_day_today" />
+
+                        <TextView
+                            style="@style/Semawit.Text.Body"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="6dp"
+                            android:text="Hari ini"
+                            android:textSize="12sp" />
+                    </LinearLayout>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Info filter -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tvFilter"
+                    style="@style/Semawit.Text.Title"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/montserrat_bold"
+                    android:text="Semua transaksi" />
+
+                <TextView
+                    android:id="@+id/tvTampilkanSemua"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="4dp"
+                    android:text="Tampilkan semua"
+                    android:textColor="@color/primary_400"
+                    android:textSize="13sp"
+                    android:textStyle="bold"
+                    android:visibility="gone" />
+            </LinearLayout>
+
+            <!-- Kosong -->
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/cardKosong"
                 style="@style/Semawit.Card"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp">
+                android:layout_marginTop="12dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -60,6 +199,7 @@
                         app:tint="@color/primary_500" />
 
                     <TextView
+                        android:id="@+id/tvKosongJudul"
                         style="@style/Semawit.Text.Title"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -67,6 +207,7 @@
                         android:text="Belum ada transaksi" />
 
                     <TextView
+                        android:id="@+id/tvKosongIsi"
                         style="@style/Semawit.Text.Body"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -82,7 +223,7 @@
                 style="@style/Semawit.Card"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="12dp"
                 android:visibility="gone">
 
                 <LinearLayout

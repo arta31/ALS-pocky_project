@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 1 sel tanggal di Kalender Panen (dipakai oleh CalendarView lewat cv_dayViewResource) -->
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="46dp">
+
+    <TextView
+        android:id="@+id/tvTanggal"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:text="22"
+        android:textColor="@color/neutral_900"
+        android:textSize="14sp" />
+
+    <!-- Titik kuning: ada transaksi panen di tanggal ini -->
+    <View
+        android:id="@+id/dotPanen"
+        android:layout_width="6dp"
+        android:layout_height="6dp"
+        android:layout_gravity="bottom|center_horizontal"
+        android:layout_marginBottom="1dp"
+        android:background="@drawable/bg_dot_gold"
+        android:visibility="invisible" />
+</FrameLayout>
