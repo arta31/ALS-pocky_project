@@ -10,6 +10,9 @@ activityKtx = "1.13.0"
 constraintlayout = "2.2.2"
 calendar = "2.10.1"
 mpandroidchart = "v3.1.0"
+# Progres 6 (P11): RecyclerView & DotsIndicator onboarding
+recyclerview = "1.3.2"
+dotsindicator = "5.1.0"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -23,6 +26,10 @@ androidx-constraintlayout = { group = "androidx.constraintlayout", name = "const
 
 kizitonwose-calendar-view = { group = "com.kizitonwose.calendar", name = "view", version.ref = "calendar" }
 mpandroidchart = { group = "com.github.PhilJay", name = "MPAndroidChart", version.ref = "mpandroidchart" }
+
+# Progres 6 (P11)
+androidx-recyclerview = { group = "androidx.recyclerview", name = "recyclerview", version.ref = "recyclerview" }
+dotsindicator = { group = "com.tbuonomo", name = "dotsindicator", version.ref = "dotsindicator" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

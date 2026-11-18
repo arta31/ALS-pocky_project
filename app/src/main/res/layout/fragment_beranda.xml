@@ -185,34 +185,43 @@
                 </LinearLayout>
             </LinearLayout>
 
-            <!-- 2. Aksi cepat -->
-            <LinearLayout
+<!--            &lt;!&ndash; 2. Aksi cepat &ndash;&gt;-->
+<!--            <LinearLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginTop="20dp"-->
+<!--                android:orientation="horizontal">-->
+
+<!--                <com.google.android.material.button.MaterialButton-->
+<!--                    android:id="@+id/btnInputTransaksi"-->
+<!--                    style="@style/Semawit.Button.Primary"-->
+<!--                    android:layout_width="0dp"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginEnd="6dp"-->
+<!--                    android:layout_weight="1"-->
+<!--                    android:text="Input Panen"-->
+<!--                    app:icon="@drawable/ic_add" />-->
+
+<!--                <com.google.android.material.button.MaterialButton-->
+<!--                    android:id="@+id/btnInfoHarga"-->
+<!--                    style="@style/Semawit.Button.Secondary"-->
+<!--                    android:layout_width="0dp"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginStart="6dp"-->
+<!--                    android:layout_weight="1"-->
+<!--                    android:text="Harga Sawit"-->
+<!--                    app:icon="@drawable/ic_trending_up" />-->
+<!--            </LinearLayout>-->
+
+            <!-- 2. Menu cepat (Progres 6 / P11: grid RecyclerView, pengganti 2 tombol lama) -->
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvMenu"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:orientation="horizontal">
-
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/btnInputTransaksi"
-                    style="@style/Semawit.Button.Primary"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="6dp"
-                    android:layout_weight="1"
-                    android:text="Input Panen"
-                    app:icon="@drawable/ic_add" />
-
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/btnInfoHarga"
-                    style="@style/Semawit.Button.Secondary"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="6dp"
-                    android:layout_weight="1"
-                    android:text="Harga Sawit"
-                    app:icon="@drawable/ic_trending_up" />
-            </LinearLayout>
-
+                android:layout_marginHorizontal="-6dp"
+                android:layout_marginTop="14dp"
+                android:nestedScrollingEnabled="false"
+                android:overScrollMode="never" />
             <!-- 3. Transaksi terakhir -->
             <LinearLayout
                 android:layout_width="match_parent"

@@ -45,6 +45,10 @@ dependencies {
     implementation(libs.kizitonwose.calendar.view)
     // Fitur baru: grafik dana (github.com/PhilJay/MPAndroidChart)
     implementation(libs.mpandroidchart)
+    // Progres 6 (P11): RecyclerView untuk grid Beranda
+    implementation(libs.androidx.recyclerview)
+    // Progres 6 (P11): titik indikator halaman onboarding (github.com/tommybuonomo/dotsindicator)
+    implementation(libs.dotsindicator)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.espresso.core)
     androidTestImplementation(libs.androidx.junit)

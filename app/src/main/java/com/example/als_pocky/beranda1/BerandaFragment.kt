@@ -16,6 +16,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.MenuProvider
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Lifecycle
+import androidx.recyclerview.widget.GridLayoutManager
 import com.example.als_pocky.R
 import com.example.als_pocky.base3.BaseActivity
 import com.example.als_pocky.databinding.FragmentBerandaBinding
@@ -107,14 +108,42 @@ class BerandaFragment : Fragment() {
             popup.show()
         }
 
-        // "Input Panen" -> pindah ke menu Panen di bottom nav
-        binding.btnInputTransaksi.setOnClickListener {
-            (requireActivity() as BaseActivity).bukaMenu(R.id.nav_panen)
+// ga pakai lagi
+
+//        // "Input Panen" -> pindah ke menu Panen di bottom nav
+//        binding.btnInputTransaksi.setOnClickListener {
+//            (requireActivity() as BaseActivity).bukaMenu(R.id.nav_panen)
+//        }
+//
+//        // "Harga Sawit" -> tetap membuka Activity WebView
+//        binding.btnInfoHarga.setOnClickListener {
+//            startActivity(Intent(requireContext(), HargaSawitWebActivity::class.java))
+//        }
+
+        // Progres 6 (P11): Grid Menu Cepat pakai RecyclerView + GridLayoutManager
+        val menuList = listOf(
+            MenuBeranda(R.drawable.ic_add, "Input Panen", "Catat hasil panen",
+                R.drawable.bg_icon_tile, R.color.primary_500),
+            MenuBeranda(R.drawable.ic_trending_up, "Harga Sawit", "Cek harga TBS",
+                R.drawable.bg_icon_tile_gold, R.color.accent_gold_dark),
+            MenuBeranda(R.drawable.ic_nav_riwayat, "Riwayat", "Kalender & transaksi",
+                R.drawable.bg_icon_tile, R.color.primary_500),
+            MenuBeranda(R.drawable.ic_nav_dana, "Dana", "Grafik bagi hasil",
+                R.drawable.bg_icon_tile_gold, R.color.accent_gold_dark)
+        )
+
+        val menuAdapter = MenuBerandaAdapter(menuList) { menu ->
+            when (menu.judul) {
+                "Input Panen" -> (requireActivity() as BaseActivity).bukaMenu(R.id.nav_panen)
+                "Harga Sawit" -> startActivity(Intent(requireContext(), HargaSawitWebActivity::class.java))
+                "Riwayat" -> (requireActivity() as BaseActivity).bukaMenu(R.id.nav_riwayat)
+                "Dana" -> (requireActivity() as BaseActivity).bukaMenu(R.id.nav_dana)
+            }
         }
 
-        // "Harga Sawit" -> tetap membuka Activity WebView
-        binding.btnInfoHarga.setOnClickListener {
-            startActivity(Intent(requireContext(), HargaSawitWebActivity::class.java))
+        binding.rvMenu.apply {
+            layoutManager = GridLayoutManager(requireContext(), 2)   // 2 kolom
+            adapter = menuAdapter
         }
 
         // "Lihat semua" -> pindah ke menu Riwayat
