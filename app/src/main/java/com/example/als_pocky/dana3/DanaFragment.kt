@@ -21,6 +21,7 @@ import com.github.mikephil.charting.data.PieEntry
 import com.github.mikephil.charting.formatter.IndexAxisValueFormatter
 import com.github.mikephil.charting.formatter.PercentFormatter
 import com.github.mikephil.charting.formatter.ValueFormatter
+import com.google.android.material.tabs.TabLayout
 import java.text.NumberFormat
 import java.time.format.DateTimeFormatter
 import java.util.Locale
@@ -69,6 +70,33 @@ class DanaFragment : Fragment() {
 
         tampilkanPieChart(total)
         tampilkanBarChart(transaksi)
+        // Progres 6 (P11): TabLayout Alokasi <-> Per Panen
+        siapkanTab(transaksi.size)
+    }
+    // Progres 6 (P11): TabLayout tanpa ViewPager2, tab cukup menampilkan/menyembunyikan kartu grafik
+    private fun siapkanTab(jumlahPanen: Int) {
+        val tabAlokasi = binding.tabDana.newTab().setText("Alokasi").setIcon(R.drawable.ic_nav_dana)
+        val tabPerPanen = binding.tabDana.newTab().setText("Per Panen").setIcon(R.drawable.ic_trending_up)
+        binding.tabDana.addTab(tabAlokasi)
+        binding.tabDana.addTab(tabPerPanen)
+
+        // Badge berisi jumlah panen (seperti modul langkah 5)
+        val badge = tabPerPanen.getOrCreateBadge()
+        badge.isVisible = true
+        badge.number = jumlahPanen
+
+        // 💡 BARU: addOnTabSelectedListener = dipanggil saat tab dipilih (tanpa ViewPager2/Mediator)
+        binding.tabDana.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
+            override fun onTabSelected(tab: TabLayout.Tab) {
+                val alokasi = tab.position == 0
+                binding.cardPie.visibility = if (alokasi) View.VISIBLE else View.GONE
+                binding.cardBar.visibility = if (alokasi) View.GONE else View.VISIBLE
+                // Animasi ulang grafik yang baru tampil
+                if (alokasi) binding.pieChart.animateY(600) else binding.barChart.animateY(600)
+            }
+            override fun onTabUnselected(tab: TabLayout.Tab) {}
+            override fun onTabReselected(tab: TabLayout.Tab) {}
+        })
     }
 
     private fun warna(id: Int) = ContextCompat.getColor(requireContext(), id)

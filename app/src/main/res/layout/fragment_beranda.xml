@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Beranda: sapaan + kartu saldo + aksi cepat + transaksi terakhir -->
+<!--- Beranda: sapaan + kartu saldo + menu cepat (grid) + transaksi terakhir. Progres 6 (P11): latar bg_beranda -->
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/bg_page">
+    android:background="@drawable/bg_beranda"> <!--    PENERAPAN BG DRAWABLE BERANDA-->
 
     <!-- Toolbar berisi avatar, sapaan, dan lonceng (menu titik tiga muncul di kanan) -->
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         style="@style/Semawit.Toolbar"
+        android:background="@android:color/transparent"
         android:layout_width="0dp"
         android:layout_height="72dp"
         app:contentInsetStart="16dp"

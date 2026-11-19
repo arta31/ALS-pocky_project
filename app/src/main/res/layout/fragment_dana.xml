@@ -125,8 +125,25 @@
                 android:orientation="vertical"
                 android:visibility="gone">
 
+                <!-- Progres 6 (P11): tab untuk berpindah grafik -->
+                <com.google.android.material.tabs.TabLayout
+                    android:id="@+id/tabDana"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:background="@android:color/transparent"
+                    app:tabIconTint="@color/tab_dana_color"
+                    app:tabIndicatorColor="@color/accent_gold"
+                    app:tabIndicatorFullWidth="false"
+                    app:tabIndicatorHeight="3dp"
+                    app:tabInlineLabel="true"
+                    app:tabSelectedTextColor="@color/primary_500"
+                    app:tabTextColor="@color/neutral_500" />
+
+<!--                ============PROGRES 6 DISINI SAYA TAMBAH ID CARDPIE===============-->
                 <!-- Pie: alokasi dana -->
                 <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/cardPie"
                     style="@style/Semawit.Card"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -252,8 +269,11 @@
                     </LinearLayout>
                 </com.google.android.material.card.MaterialCardView>
 
+<!--               ===========PROGRES 6 DISINI AKU TAMBAH ID CARD BAR DAN VISIBILITY GONE-->
                 <!-- Bar: pendapatan per panen -->
                 <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/cardBar"
+                    android:visibility="gone"
                     style="@style/Semawit.Card"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
