@@ -10,6 +10,7 @@ import androidx.lifecycle.lifecycleScope
 import com.example.als_pocky.R
 import com.example.als_pocky.auth2.AuthActivity
 import com.example.als_pocky.base3.BaseActivity
+import com.example.als_pocky.onboarding6.OnboardingActivity
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
@@ -29,16 +30,19 @@ class SplashScreenActivity : AppCompatActivity() {
 
             // Cek status login
             val isLogin = sharedPref.getBoolean("isLogin", false)
+            // Progres 6 (P11): cek apakah onboarding sudah pernah dilihat
+            val sudahOnboarding = getSharedPreferences("onboarding_pref", MODE_PRIVATE)
+                .getBoolean("selesai", false)
+
             if (isLogin) {
                 // isLogin true: ke BaseActivity
-                var intent = Intent(this@SplashScreenActivity,
-                    BaseActivity::class.java)
-                startActivity(intent)
+                startActivity(Intent(this@SplashScreenActivity, BaseActivity::class.java))
+            } else if (!sudahOnboarding) {
+                // Progres 6 (P11): pengguna baru -> On Board Screen dulu
+                startActivity(Intent(this@SplashScreenActivity, OnboardingActivity::class.java))
             } else {
                 // isLogin false: ke AuthActivity
-                var intent = Intent(this@SplashScreenActivity,
-                    AuthActivity::class.java)
-                startActivity(intent)
+                startActivity(Intent(this@SplashScreenActivity, AuthActivity::class.java))
             }
             finish()
         }

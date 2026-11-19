@@ -7,7 +7,8 @@
         android:id="@+id/action_panduan"
         android:icon="@drawable/ic_info"
         android:title="Panduan"
-        app:showAsAction="ifRoom" />
+        app:showAsAction="ifRoom"
+        app:iconTint="@color/neutral_900"/>
 
     <!-- Ubah judul menjadi Profil Developer sesuai tugas -->
     <item

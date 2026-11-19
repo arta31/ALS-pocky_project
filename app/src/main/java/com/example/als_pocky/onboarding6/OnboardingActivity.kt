@@ -1,9 +1,11 @@
 package com.example.als_pocky.onboarding6
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.viewpager2.widget.ViewPager2
+import com.example.als_pocky.auth2.AuthActivity
 import com.example.als_pocky.databinding.ActivityOnboardingBinding
 
 // Progres 6 (P11): On Board Screen pengenalan fitur SEMAWIT
@@ -39,7 +41,20 @@ class OnboardingActivity : AppCompatActivity() {
     }
 
     // Sementara cukup tutup halaman. Step berikutnya: simpan status & lanjut ke Login
+//    private fun selesai() {
+//        finish()
+//    }
+    // Progres 6 (P11): simpan status onboarding, lalu lanjut ke Login (kalau belum login)
     private fun selesai() {
+        getSharedPreferences("onboarding_pref", MODE_PRIVATE)
+            .edit().putBoolean("selesai", true).apply()
+
+        // Dibuka dari Splash (belum login) -> ke Login
+        // Dibuka dari ikon info Beranda (sudah login) -> cukup ditutup
+        val isLogin = getSharedPreferences("user_pref", MODE_PRIVATE).getBoolean("isLogin", false)
+        if (!isLogin) {
+            startActivity(Intent(this, AuthActivity::class.java))
+        }
         finish()
     }
 }
