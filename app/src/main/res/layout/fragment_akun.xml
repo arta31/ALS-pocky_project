@@ -107,125 +107,16 @@
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
 
-                    <LinearLayout
-                        android:id="@+id/btnProfilDeveloper"
+                    <!-- Progres 6 (P11): daftar menu pakai ListView + SimpleAdapter -->
+                    <!-- ListView di dalam NestedScrollView hanya mengukur 1 baris,
+                         jadi tingginya ditetapkan: 4 item x 68dp + 3 garis x 1dp = 275dp -->
+                    <ListView
+                        android:id="@+id/lvMenuAkun"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="?attr/selectableItemBackground"
-                        android:clickable="true"
-                        android:focusable="true"
-                        android:gravity="center_vertical"
-                        android:orientation="horizontal"
-                        android:padding="14dp">
-
-                        <ImageView
-                            android:layout_width="40dp"
-                            android:layout_height="40dp"
-                            android:background="@drawable/bg_icon_tile"
-                            android:padding="10dp"
-                            android:src="@drawable/ic_nav_akun"
-                            app:tint="@color/primary_500" />
-
-                        <TextView
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="14dp"
-                            android:layout_weight="1"
-                            android:text="Profil Developer"
-                            android:textColor="@color/neutral_900"
-                            android:textSize="14sp"
-                            android:textStyle="bold" />
-
-                        <ImageView
-                            android:layout_width="20dp"
-                            android:layout_height="20dp"
-                            android:src="@drawable/ic_chevron_right"
-                            app:tint="@color/neutral_500" />
-                    </LinearLayout>
-
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:layout_marginHorizontal="14dp"
-                        android:background="@color/neutral_200" />
-
-                    <LinearLayout
-                        android:id="@+id/menuPengaturan"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="?attr/selectableItemBackground"
-                        android:clickable="true"
-                        android:focusable="true"
-                        android:gravity="center_vertical"
-                        android:orientation="horizontal"
-                        android:padding="14dp">
-
-                        <ImageView
-                            android:layout_width="40dp"
-                            android:layout_height="40dp"
-                            android:background="@drawable/bg_icon_tile"
-                            android:padding="10dp"
-                            android:src="@drawable/ic_settings"
-                            app:tint="@color/primary_500" />
-
-                        <TextView
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="14dp"
-                            android:layout_weight="1"
-                            android:text="Pengaturan"
-                            android:textColor="@color/neutral_900"
-                            android:textSize="14sp"
-                            android:textStyle="bold" />
-
-                        <ImageView
-                            android:layout_width="20dp"
-                            android:layout_height="20dp"
-                            android:src="@drawable/ic_chevron_right"
-                            app:tint="@color/neutral_500" />
-                    </LinearLayout>
-
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:layout_marginHorizontal="14dp"
-                        android:background="@color/neutral_200" />
-
-                    <LinearLayout
-                        android:id="@+id/menuTentang"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="?attr/selectableItemBackground"
-                        android:clickable="true"
-                        android:focusable="true"
-                        android:gravity="center_vertical"
-                        android:orientation="horizontal"
-                        android:padding="14dp">
-
-                        <ImageView
-                            android:layout_width="40dp"
-                            android:layout_height="40dp"
-                            android:background="@drawable/bg_icon_tile"
-                            android:padding="10dp"
-                            android:src="@drawable/ic_info"
-                            app:tint="@color/primary_500" />
-
-                        <TextView
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="14dp"
-                            android:layout_weight="1"
-                            android:text="Tentang SEMAWIT"
-                            android:textColor="@color/neutral_900"
-                            android:textSize="14sp"
-                            android:textStyle="bold" />
-
-                        <ImageView
-                            android:layout_width="20dp"
-                            android:layout_height="20dp"
-                            android:src="@drawable/ic_chevron_right"
-                            app:tint="@color/neutral_500" />
-                    </LinearLayout>
+                        android:layout_height="275dp"
+                        android:divider="@color/neutral_200"
+                        android:dividerHeight="1dp"
+                        android:scrollbars="none" />
 
                     <View
                         android:layout_width="match_parent"
