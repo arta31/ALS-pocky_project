@@ -20,6 +20,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import com.example.als_pocky.R
 import com.example.als_pocky.base3.BaseActivity
 import com.example.als_pocky.databinding.FragmentBerandaBinding
+import com.example.als_pocky.onboarding6.OnboardingActivity
 import com.example.als_pocky.profile2.ProfileActivity
 import com.example.als_pocky.riwayat3.RiwayatFragment
 import com.example.als_pocky.web1.HargaSawitWebActivity
@@ -52,6 +53,11 @@ class BerandaFragment : Fragment() {
 
             override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
                 return when (menuItem.itemId) {
+                    // Progres 6 (P11): buka On Board Screen
+                    R.id.action_panduan -> {
+                        startActivity(Intent(requireContext(), OnboardingActivity::class.java))
+                        true
+                    }
                     R.id.action_developer -> {
                         startActivity(Intent(requireContext(), ProfileActivity::class.java))
                         true

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Progres 6 (P11): halaman onboarding 1 -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/primary_100"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:paddingHorizontal="32dp"
+    android:paddingBottom="120dp">
+
+    <ImageView
+        android:layout_width="160dp"
+        android:layout_height="160dp"
+        android:background="@drawable/bg_onboarding_icon"
+        android:padding="44dp"
+        android:src="@drawable/ic_nav_riwayat"
+        app:tint="@color/primary_500" />
+
+    <TextView
+        style="@style/Semawit.Text.Heading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:gravity="center"
+        android:text="Pantau Riwayat dan Laporan" />
+
+    <TextView
+        style="@style/Semawit.Text.Body"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:gravity="center"
+        android:textSize="14sp"
+        android:text="Lihat kalender panen, grafik dana, dan bagikan laporan PDF kapan saja." />
+</LinearLayout>

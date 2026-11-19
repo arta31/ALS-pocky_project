@@ -91,6 +91,10 @@
             android:name=".beranda1.MenuBeranda"
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".onboarding6.OnboardingActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
     </application>
 
 </manifest>

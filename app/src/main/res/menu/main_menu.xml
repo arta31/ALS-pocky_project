@@ -2,6 +2,13 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
+    <!-- Progres 6 (P11): ikon info untuk membuka onboarding -->
+    <item
+        android:id="@+id/action_panduan"
+        android:icon="@drawable/ic_info"
+        android:title="Panduan"
+        app:showAsAction="ifRoom" />
+
     <!-- Ubah judul menjadi Profil Developer sesuai tugas -->
     <item
         android:id="@+id/action_developer"
